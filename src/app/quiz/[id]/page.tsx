@@ -7,12 +7,10 @@ import { Quiz, QuizState } from '@/types/quiz';
 import Link from 'next/link';
 import confetti from 'canvas-confetti';
 import { useClientOnly } from '@/utils/hooks';
-import { use } from 'react';
 
 export default function TakeQuizPage({ params }: { params: { id: string } }) {
-  // Unwrap params using React.use()
-  const unwrappedParams = use(params);
-  const quizId = unwrappedParams.id;
+  // Get the quiz ID directly from params
+  const quizId = params.id;
   
   const router = useRouter();
   const [quiz, setQuiz] = useState<Quiz | null>(null);
